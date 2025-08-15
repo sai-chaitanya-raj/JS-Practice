@@ -9,17 +9,18 @@ to terminate once the number is guessed. Number should be between
 let prompt = require("prompt-sync")();
 let a = Math.floor(Math.random()*100 +1);
 for(let i = 0;i<=100;i++){
-    let GN = prompt("Guess the number");
-    switch(GN){
+    let GN = Number(prompt("Guess the number"));
+    switch(true){
         case (GN > a) :
             console.log("The number u have Guessed is greater than the required");
             break;
         case (GN < a) :
             console.log("The number u have Guessed is less than the required");
             break;
-        case (GN = a):
+        case (GN == a):
             console.log("Shabash u have guess the correct number.");
-            break;
+            console.log("your score is", 100-i);
+            i = 101;
+            break;   
     } 
-
 }
