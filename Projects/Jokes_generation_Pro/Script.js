@@ -139,5 +139,11 @@ let Jokes = [
 "What do you call a bear without any teeth? A gummy bear.",
 "Why was the coach yelling at the vending machine? He wanted his quarter back."
 ]
-let value = Math.floor(Math.random()*138+1);
-console.log(value);
+const JokesContainer = document.getElementById("JokesContainer");
+const Jokesbtn = document.getElementById("JokesBtn");
+randomjokes = () =>{
+    const randomvalue = Math.floor(Math.random()*Jokes.length);
+    JokesContainer.textContent = Jokes[randomvalue];
+}
+Jokesbtn.addEventListener("click",randomjokes);
+randomjokes();

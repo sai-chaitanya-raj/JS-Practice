@@ -31,4 +31,5 @@ body{
 #JokesBtn:hover {
 background: red;
 transform: scale(1.1);
+transition: 0.1ms;
 }
