@@ -1,4 +1,3 @@
-let Jokes = [
 "What did one snowman say to the other snowman? It smells like carrots over here!",
 "Why did Beethoven get rid of his chickens? All they ever said was, “Bach, Bach, Bach!”",
 "What did 20 do when it was hungry? Twenty-eight.",
@@ -138,6 +137,3 @@ let Jokes = [
 "What's the best smelling insect? A deodor-ant.",
 "What do you call a bear without any teeth? A gummy bear.",
 "Why was the coach yelling at the vending machine? He wanted his quarter back."
-]
-let value = Math.floor(Math.random()*138+1);
-console.log(value);
