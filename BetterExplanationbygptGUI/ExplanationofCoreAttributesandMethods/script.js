@@ -1,55 +1,60 @@
-// Select elements
-const demoText = document.getElementById("demo-text");
-const demoInput = document.getElementById("demo-input");
-const demoLink = document.getElementById("demo-link");
+
+const heading = document.getElementById("heading");
+const para = document.getElementById("para");
+const link = document.getElementById("myLink");
+const input = document.getElementById("myInput");
 const output = document.getElementById("output");
 
-// Buttons
-const checkBtn = document.getElementById("checkAttrBtn");
-const setBtn = document.getElementById("setAttrBtn");
-const removeBtn = document.getElementById("removeAttrBtn");
-const toggleBtn = document.getElementById("toggleAttrBtn");
-const listBtn = document.getElementById("listAttrBtn");
+const btnGet = document.getElementById("btnGet");
+const btnSet = document.getElementById("btnSet");
+const btnRemove = document.getElementById("btnRemove");
+const btnHas = document.getElementById("btnHas");
+const btnList = document.getElementById("btnList");
+const btnToggle = document.getElementById("btnToggle");
 
-// Utility: show messages
+
 function log(msg) {
   output.innerHTML += `<p>${msg}</p>`;
 }
 
-// 1️⃣ getAttribute demo
-checkBtn.addEventListener("click", () => {
-  log("demoText title: " + demoText.getAttribute("title"));
-  log("demoInput placeholder: " + demoInput.getAttribute("placeholder"));
-  log("demoLink href (raw): " + demoLink.getAttribute("href"));
-  log("demoLink href (property resolved): " + demoLink.href);
-  log("demoInput data-owner (custom): " + demoInput.getAttribute("data-owner"));
+btnGet.addEventListener("click", () => {
+  log("Heading title: " + heading.getAttribute("title"));
+  log("Paragraph data-owner: " + para.getAttribute("data-owner"));
+  log("Link href: " + link.getAttribute("href"));
+  log("Input placeholder: " + input.getAttribute("placeholder"));
 });
 
-// 2️⃣ setAttribute demo
-setBtn.addEventListener("click", () => {
-  demoText.setAttribute("title", "Changed tooltip!");
-  demoInput.setAttribute("value", "Set via setAttribute()");
-  demoLink.setAttribute("href", "https://google.com");
-  demoLink.setAttribute("data-extra", "new-attr");
-  log("Attributes updated via setAttribute()");
+
+
+btnSet.addEventListener("click", () => {
+  heading.setAttribute("title", "Updated Heading Title");
+  para.setAttribute("style", "color:green; font-weight:bold;");
+  link.setAttribute("href", "https://google.com");
+  input.setAttribute("value", "Changed via JS");
+  log("Attributes updated successfully!");
 });
 
-// 3️⃣ removeAttribute demo
-removeBtn.addEventListener("click", () => {
-  demoText.removeAttribute("class");
-  demoInput.removeAttribute("placeholder");
-  demoLink.removeAttribute("target");
-  log("Removed class, placeholder, and target attributes");
+
+btnRemove.addEventListener("click", () => {
+  heading.removeAttribute("class");
+  para.removeAttribute("data-owner");
+  input.removeAttribute("placeholder");
+  log("Removed class, data-owner, and placeholder attributes.");
 });
 
-// 4️⃣ toggleAttribute demo
-toggleBtn.addEventListener("click", () => {
-  demoText.toggleAttribute("hidden");
-  log("Toggled hidden attribute on <p>");
+
+btnHas.addEventListener("click", () => {
+  log("Heading has 'title'? " + heading.hasAttribute("title"));
+  log("Paragraph has 'data-owner'? " + para.hasAttribute("data-owner"));
 });
 
-// 5️⃣ getAttributeNames demo
-listBtn.addEventListener("click", () => {
-  const names = demoInput.getAttributeNames();
-  log("demoInput attributes: " + names.join(", "));
+btnList.addEventListener("click", () => {
+  const names = input.getAttributeNames();
+  log("Input attributes: " + names.join(", "));
+});
+
+
+btnToggle.addEventListener("click", () => {
+  para.toggleAttribute("hidden");
+  log("Toggled hidden attribute on paragraph.");
 });

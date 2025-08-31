@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JS Attribute Methods Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Attribute Methods Demo</title>
   <script src="script.js" defer></script>
 </head>
 <body>
-  <h1>Core Attribute Methods in JavaScript</h1>
+  <h1 id="heading" class="title" title="Main heading">Hello, Raj!</h1>
 
-  <p id="demo-text" class="highlight" title="This is a tooltip">
-    Hello! I am a paragraph with some attributes.
+  <p id="para" class="info" data-owner="Raj" style="color:blue;">
+    This is a sample paragraph with attributes.
   </p>
 
-  <input id="demo-input" type="text" value="Default value" placeholder="Type here..." data-owner="Raj">
+  <a id="myLink" href="https://example.com" target="_blank">Visit Example</a>
 
-  <a id="demo-link" href="/about" target="_blank">Go to About Page</a>
+  <input id="myInput" type="text" value="Default" placeholder="Enter text here">
 
   <br><br>
 
-  <button id="checkAttrBtn">Check Attributes</button>
-  <button id="setAttrBtn">Set Attribute</button>
-  <button id="removeAttrBtn">Remove Attribute</button>
-  <button id="toggleAttrBtn">Toggle Attribute</button>
-  <button id="listAttrBtn">List All Attributes</button>
+  <!-- Buttons to test -->
+  <button id="btnGet">Get Attribute</button>
+  <button id="btnSet">Set Attribute</button>
+  <button id="btnRemove">Remove Attribute</button>
+  <button id="btnHas">Has Attribute?</button>
+  <button id="btnList">List All Attributes</button>
+  <button id="btnToggle">Toggle Hidden</button>
 
-  <div id="output"></div>
+  <div id="output" style="margin-top:20px; border:1px solid #333; padding:10px;">
+    Output will appear here...
+  </div>
 </body>
 </html>
