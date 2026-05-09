@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>
+            To-Do application
+        </title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body>
+        <div style="display: flex; justify-content: space-between; padding: 0px 100px;" >
+        <div id="notes">
+            loading...
+        </div>
+        <div>
+        <input placeholder="Enter the TO-DO" type="text" id="userNote"></input>
+        <Button onclick="addtodo()">Create New To-Do</Button>
+        </div>
+        </div>
+        <script>
+            async function addtodo(){
+                await axios.post("/notes",{
+                    note:document.getElementById("userNote").value 
+                })
+                
+                const newNOde = document.createElement("div");
+                newNOde.innerHTML = document.getElementById("userNote").value; 
+                newNOde.setAttribute("style","border:2px solid black;padding:10px")
+                document.getElementById("notes").appendChild(newNOde);
+                document.getElementById("userNote").value = "";
+
+            }
+            
+            async function todo(){
+                const  response = await axios.get("/notes");
+                const notes = response.data.notes;
+                console.log(response.data.notes);
+                document.getElementById("notes").innerHTML = ""
+                for(let i = 0;i<notes.length;i++){
+                    const Notenote = document.createElement("div");
+                    Notenote.innerHTML = notes[i];
+                    Notenote.setAttribute("style","border:2px solid black;padding:10px")
+                    document.getElementById("notes").appendChild(Notenote);
+                }    
+           }
+           todo(); 
+        </script>
+    </body>
+</html>
